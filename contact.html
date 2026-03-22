@@ -18,8 +18,8 @@
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo"><div class="nav-logo-mark"><img src="images/PFIL-Logo.png" alt="PFIL" style="width:36px;height:36px;object-fit:contain;border-radius:50%;display:block;"></div><div class="nav-logo-text"><strong>PFIL Group</strong><span>Pacific Finance & Investment</span></div></a>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html">Home</a></li><li><a href="who-we-are.html">Who We Are</a></li><li><a href="our-businesses.html">Our Businesses</a></li><li><a href="our-team.html">Our Team</a></li>
-        <li><a href="community-outreach.html">Community</a></li><li><a href="news-media.html">News & Media</a></li><li><a href="careers.html">Careers</a></li>
+        <li><a href="index.html">Home</a></li><li><a href="who-we-are.html">Who We Are</a></li><li><a href="our-businesses.html">Our Businesses</a></li>
+        <li><a href="community-outreach.html">Community Outreach</a></li><li><a href="why-join-us.html">Why Join Us?</a></li>
         <li><a href="contact.html" class="nav-cta active">Contact Us</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span class="icon" data-icon="menu"></span></button>
@@ -66,8 +66,16 @@
           <div style="margin-top:40px;">
             <h4 style="margin-bottom:16px;font-size:1rem;">Business Divisions</h4>
             <div class="division-contact">
-              <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;"><span class="icon" style="width:18px;height:18px;color:var(--primary);" data-icon="hammer"></span><h5>PTH Tonga Ltd.</h5></div>
-              <p>For hardware, building materials, and retail enquiries in Tonga.</p>
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;"><span class="icon" style="width:18px;height:18px;color:var(--primary);" data-icon="hammer"></span><h5>PTH Tonga — Nukuʻalofa</h5></div>
+              <p>For hardware, building materials, and retail enquiries. <a href="mailto:sales@pth.to" style="color:var(--primary);">sales@pth.to</a></p>
+            </div>
+            <div class="division-contact">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;"><span class="icon" style="width:18px;height:18px;color:var(--primary);" data-icon="hammer"></span><h5>PTH Ha'apai — Pangai</h5></div>
+              <p>For hardware and building materials enquiries in Ha'apai. <a href="mailto:sales@pth.to" style="color:var(--primary);">sales@pth.to</a></p>
+            </div>
+            <div class="division-contact">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;"><span class="icon" style="width:18px;height:18px;color:var(--primary);" data-icon="hammer"></span><h5>PTH Vava'u — Neiafu</h5></div>
+              <p>For hardware and building materials enquiries in Vava'u. <a href="mailto:sales@pth.to" style="color:var(--primary);">sales@pth.to</a></p>
             </div>
             <div class="division-contact">
               <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;"><span class="icon" style="width:18px;height:18px;color:var(--primary);" data-icon="leaf"></span><h5>PTH Vanuatu Ltd.</h5></div>
@@ -140,6 +148,17 @@
               </select>
             </div>
             <div class="form-group">
+              <label class="form-label" for="inquiryType">Inquiry Type</label>
+              <select class="form-control" id="inquiryType" name="inquiryType">
+                <option value="">— Select Inquiry Type —</option>
+                <option value="general">General Information</option>
+                <option value="feedback">Feedback</option>
+                <option value="complaint">Complaint</option>
+                <option value="product">Product Inquiry</option>
+                <option value="job">Job Application</option>
+              </select>
+            </div>
+            <div class="form-group">
               <label class="form-label" for="subject">Subject *</label>
               <input class="form-control" type="text" id="subject" name="subject" placeholder="How can we help?" required>
             </div>
@@ -173,7 +192,7 @@
       <div class="footer-brand"><a href="index.html" class="nav-logo"><div class="nav-logo-mark"><img src="images/PFIL-Logo.png" alt="PFIL" style="width:36px;height:36px;object-fit:contain;border-radius:50%;display:block;"></div><div class="nav-logo-text"><strong>PFIL Group</strong><span>Pacific Finance & Investment</span></div></a><p>A diversified Pacific holding company invested in the growth and wellbeing of Tonga, Vanuatu, and the wider Pacific region.</p><span class="footer-tagline">"Building A Better Tonga"</span><div class="footer-social"><a href="#" class="social-btn" aria-label="Facebook"><span class="icon" data-icon="facebook"></span></a><a href="#" class="social-btn" aria-label="Instagram"><span class="icon" data-icon="instagram"></span></a><a href="#" class="social-btn" aria-label="LinkedIn"><span class="icon" data-icon="linkedin"></span></a><a href="#" class="social-btn" aria-label="Twitter"><span class="icon" data-icon="twitter"></span></a></div></div>
       <div><h5>Company</h5><ul class="footer-links"><li><a href="who-we-are.html">Who We Are</a></li><li><a href="our-team.html">Our Team</a></li><li><a href="community-outreach.html">Community Outreach</a></li><li><a href="news-media.html">News &amp; Media</a></li></ul></div>
       <div><h5>Our Businesses</h5><ul class="footer-links"><li><a href="our-businesses.html#pth-tonga">PTH Tonga Ltd.</a></li><li><a href="our-businesses.html#pth-vanuatu">PTH Vanuatu Ltd.</a></li><li><a href="our-businesses.html#dateline-shipping">Dateline Shipping</a></li><li><a href="our-businesses.html#wantok">WanTok Network</a></li></ul></div>
-      <div><h5>Quick Links</h5><ul class="footer-links"><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li></ul></div>
+      <div><h5>Quick Links</h5><ul class="footer-links"><li><a href="why-join-us.html">Careers</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li></ul></div>
     </div></div></div>
     <div class="footer-bottom"><div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;width:100%;"><span>© 2025 Pacific Finance &amp; Investment Ltd. All rights reserved.</span><span>Nukuʻalofa, Kingdom of Tonga</span></div></div>
   </footer>

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
 
@@ -40,10 +41,8 @@
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="who-we-are.html">Who We Are</a></li>
         <li><a href="our-businesses.html">Our Businesses</a></li>
-        <li><a href="our-team.html">Our Team</a></li>
-        <li><a href="community-outreach.html">Community</a></li>
-        <li><a href="news-media.html">News & Media</a></li>
-        <li><a href="careers.html">Careers</a></li>
+        <li><a href="community-outreach.html">Community Outreach</a></li>
+        <li><a href="why-join-us.html">Why Join Us?</a></li>
         <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -182,112 +181,7 @@
         <p>Operating across two Pacific nations — the Kingdom of Tonga and the Republic of Vanuatu — with plans to grow further across the region.</p>
       </div>
       <div class="pacific-map-wrap" data-reveal>
-        <!-- Projection: x=(lon-110)*5.667  y=(25+lat_south)*5.067  viewBox 680x380 -->
-        <svg viewBox="0 0 680 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="oceanGrad" cx="50%" cy="50%" r="70%">
-              <stop offset="0%" stop-color="#023a7a"/>
-              <stop offset="100%" stop-color="#010066"/>
-            </radialGradient>
-          </defs>
-          <rect width="680" height="380" rx="20" fill="url(#oceanGrad)"/>
-          <!-- Equator -->
-          <line x1="0" y1="126.7" x2="680" y2="126.7" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-          <text x="8" y="123" fill="rgba(255,255,255,0.1)" font-family="Inter,sans-serif" font-size="7" letter-spacing="1">EQ</text>
-          <!-- Tropic of Capricorn 23.5°S -->
-          <line x1="0" y1="245.7" x2="680" y2="245.7" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="5 5"/>
-          <!-- Longitude gridlines every 30° -->
-          <line x1="113.3" y1="0" x2="113.3" y2="380" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-          <line x1="283.5" y1="0" x2="283.5" y2="380" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-          <line x1="453.6" y1="0" x2="453.6" y2="380" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-          <line x1="623.7" y1="0" x2="623.7" y2="380" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-          <!-- Pacific Ocean label -->
-          <text x="540" y="115" text-anchor="middle" fill="rgba(255,255,255,0.05)" font-family="Georgia,serif" font-size="20" font-style="italic" letter-spacing="5">PACIFIC OCEAN</text>
-
-          <!-- AUSTRALIA — accurate polygon (clockwise from NW) -->
-          <path stroke-linejoin="round"
-            d="M17,238 L39.7,233 L56.7,218.5 L68,218.5 L79.7,203 L102,197.6
-               L113.3,187.5 L124.7,187.5 L130.3,197.6
-               L147.7,187.5 L147.7,213 L170,213 L170,187.5
-               L181.3,182.4 L198.3,182.4
-               L204,213 L226,238 L243.7,263.5
-               L238,288.8 L232.7,298.9 L226,314.2 L215.3,319.2
-               L198.3,324.3 L187,324.3 L170,319.2
-               L147.7,308.5 L130.3,278.7 L119.4,288.8
-               L102,298.9 L90.7,298.9 L68,298.9 L45.3,304
-               L34,288.8 L28.3,278.7 L22.7,258.4 Z"
-            fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
-          <text x="118" y="272" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="Inter,sans-serif" font-size="10" font-weight="700" letter-spacing="2.5">AUSTRALIA</text>
-
-          <!-- NZ NORTH ISLAND -->
-          <path stroke-linejoin="round"
-            d="M363.3,304.2 L385.3,314.2 L385.3,329.4 L368.3,334.4 L351.3,314.2 Z"
-            fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-          <!-- NZ SOUTH ISLAND -->
-          <path stroke-linejoin="round"
-            d="M351.3,334.4 L368.3,334.4 L363.3,347.5 L345.7,359.8 L328.7,359.8 L323,344.5 Z"
-            fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-          <text x="358" y="373" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" letter-spacing="1">NEW ZEALAND</text>
-
-          <!-- PAPUA NEW GUINEA -->
-          <path stroke-linejoin="round"
-            d="M124.7,136.8 L141.3,147 L158.3,157.2 L175.7,162.1
-               L198.3,157.2 L215.3,162.1 L232.7,162.1
-               L220.7,172.2 L198.3,172.2 L181.3,167.2 L158.3,167.2 L141.3,157.2 Z"
-            fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
-          <text x="178" y="148" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="Inter,sans-serif" font-size="8.5" font-weight="700" letter-spacing="1">PNG</text>
-
-          <!-- SOLOMON ISLANDS -->
-          <circle cx="272" cy="167.2" r="3" fill="rgba(255,255,255,0.12)"/>
-          <circle cx="283.3" cy="162.1" r="2.5" fill="rgba(255,255,255,0.1)"/>
-          <circle cx="295" cy="158" r="2" fill="rgba(255,255,255,0.08)"/>
-          <text x="283" y="153" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" font-size="7.5">SOLOMON IS.</text>
-
-          <!-- NEW CALEDONIA (165°E 22°S) -->
-          <ellipse cx="311.7" cy="238.1" rx="8" ry="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <text x="311.7" y="250" text-anchor="middle" fill="rgba(255,255,255,0.17)" font-family="Inter,sans-serif" font-size="7">NEW CALEDONIA</text>
-
-          <!-- FIJI (178°E 18°S) -->
-          <circle cx="385.3" cy="217.9" r="5" fill="rgba(255,255,255,0.13)"/>
-          <text x="385.3" y="232" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-family="Inter,sans-serif" font-size="8.5" font-weight="600">FIJI</text>
-
-          <!-- SAMOA (188°E 14°S) -->
-          <circle cx="441.8" cy="197.6" r="3.5" fill="rgba(255,255,255,0.1)"/>
-          <text x="441.8" y="210" text-anchor="middle" fill="rgba(255,255,255,0.22)" font-family="Inter,sans-serif" font-size="8">SAMOA</text>
-
-          <!-- COOK ISLANDS (200°E 21°S) -->
-          <circle cx="510" cy="233.1" r="2.5" fill="rgba(255,255,255,0.08)"/>
-          <text x="510" y="245" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-family="Inter,sans-serif" font-size="7">COOK IS.</text>
-
-          <!-- FRENCH POLYNESIA (210°E 18°S) -->
-          <circle cx="566.7" cy="217.9" r="2" fill="rgba(255,255,255,0.07)"/>
-          <text x="566.7" y="230" text-anchor="middle" fill="rgba(255,255,255,0.13)" font-family="Inter,sans-serif" font-size="7">FR. POLYNESIA</text>
-
-          <!-- HAWAII (202°E 20°N) -->
-          <circle cx="521" cy="25" r="3" fill="rgba(255,255,255,0.09)"/>
-          <text x="521" y="16" text-anchor="middle" fill="rgba(255,255,255,0.16)" font-family="Inter,sans-serif" font-size="7.5" letter-spacing="0.5">HAWAII</text>
-
-          <!-- Dashed connector line -->
-          <line x1="336" y1="212" x2="440" y2="230" stroke="rgba(0,175,240,0.22)" stroke-width="1.5" stroke-dasharray="5 4"/>
-
-          <!-- VANUATU PIN (168°E 17°S) → x=328.7 y=213 -->
-          <g class="map-location" transform="translate(328.7,210)">
-            <circle class="map-pulse"   cx="0" cy="0" r="10" fill="rgba(0,175,240,0.28)" stroke="none"/>
-            <circle class="map-pulse map-pulse-2" cx="0" cy="0" r="10" fill="rgba(0,175,240,0.18)" stroke="none"/>
-            <circle cx="0" cy="0" r="7" fill="#00aff0" stroke="#fff" stroke-width="2.5"/>
-            <circle cx="0" cy="0" r="3" fill="#fff"/>
-            <text x="0" y="-17" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="11" font-weight="700">VANUATU</text>
-          </g>
-
-          <!-- TONGA PIN (185°E 21°S) → x=424.9 y=233 -->
-          <g class="map-location" transform="translate(449,233)">
-            <circle class="map-pulse"   cx="0" cy="0" r="10" fill="rgba(1,112,185,0.38)" stroke="none"/>
-            <circle class="map-pulse map-pulse-2" cx="0" cy="0" r="10" fill="rgba(1,112,185,0.25)" stroke="none"/>
-            <circle cx="0" cy="0" r="7" fill="#0170b9" stroke="#fff" stroke-width="2.5"/>
-            <circle cx="0" cy="0" r="3" fill="#fff"/>
-            <text x="0" y="22" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="11" font-weight="700">TONGA</text>
-          </g>
-        </svg>
+        <div id="pfil-map" style="width:100%;height:420px;border-radius:20px;overflow:hidden;"></div>
         <div class="map-location-info" data-reveal>
           <div class="map-loc">
             <div class="map-loc-dot"></div>
@@ -334,6 +228,8 @@
 
         <!-- Dateline Shipping — tall -->
         <div class="bento-item bento-tall accent-4" data-reveal data-delay="2">
+          <div class="bento-bg" style="background-image:url('images/pth-store-9.jpg');"></div>
+          <div class="bento-overlay"></div>
           <div class="bento-content top">
             <div class="bento-icon"><span class="icon" data-icon="ship"></span></div>
             <h3>Dateline Shipping</h3>
@@ -366,6 +262,8 @@
 
         <!-- PTH Vanuatu — wide -->
         <div class="bento-item bento-wide accent-3" data-reveal data-delay="4">
+          <div class="bento-bg" style="background-image:url('images/pil-southern-trader.jpg');"></div>
+          <div class="bento-overlay"></div>
           <div class="bento-content" style="flex-direction:row;align-items:center;justify-content:space-between;gap:32px;">
             <div style="display:flex;align-items:center;gap:20px;">
               <div class="bento-icon" style="flex-shrink:0;"><span class="icon" data-icon="leaf"></span></div>
@@ -498,7 +396,7 @@
       <h2>Build Your Career in the Pacific</h2>
       <p>We're always looking for talented, driven people who share our passion for the Pacific. Explore career opportunities across our businesses.</p>
       <div class="cta-actions">
-        <a href="careers.html" class="btn btn-primary">View Open Roles <span class="icon" data-icon="arrow-right"></span></a>
+        <a href="why-join-us.html" class="btn btn-primary">View Open Roles <span class="icon" data-icon="arrow-right"></span></a>
         <a href="contact.html" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
@@ -549,7 +447,7 @@
           <div>
             <h5>Quick Links</h5>
             <ul class="footer-links">
-              <li><a href="careers.html">Careers</a></li>
+              <li><a href="why-join-us.html">Careers</a></li>
               <li><a href="contact.html">Contact Us</a></li>
               <li><a href="privacy-policy.html">Privacy Policy</a></li>
             </ul>
@@ -572,5 +470,41 @@
 
   <script src="js/icons.js"></script>
   <script src="js/main.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    (function () {
+      var map = L.map('pfil-map', {
+        center: [-19, 176.5],
+        zoom: 5,
+        scrollWheelZoom: false,
+        zoomControl: true
+      });
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 18
+      }).addTo(map);
+
+      function makeIcon(color) {
+        return L.divIcon({
+          className: '',
+          html: '<div style="width:18px;height:18px;border-radius:50%;background:' + color + ';border:3px solid #fff;box-shadow:0 0 0 6px ' + color + '44,0 2px 8px rgba(0,0,0,0.5);"></div>',
+          iconSize: [18, 18],
+          iconAnchor: [9, 9],
+          popupAnchor: [0, -14]
+        });
+      }
+
+      /* Tonga: 175°W = 185°E in 0-360, keeps it on the same map tile as Vanuatu (168°E) */
+      L.marker([-21.18, 185.18], { icon: makeIcon('#0170b9') })
+        .addTo(map)
+        .bindPopup('<strong style="color:#010066;">Kingdom of Tonga</strong><br><small>PTH Tonga &middot; Dateline Shipping &middot; WanTok Tonga</small>');
+
+      L.marker([-17.73, 168.32], { icon: makeIcon('#00aff0') })
+        .addTo(map)
+        .bindPopup('<strong style="color:#010066;">Republic of Vanuatu</strong><br><small>PTH Vanuatu &middot; WanTok Vanuatu</small>');
+    })();
+  </script>
 </body>
 </html>
