@@ -210,8 +210,8 @@ p:last-child { margin-bottom:0; }
   padding-top:var(--nav-height); overflow:hidden;
   background:var(--primary-dark);
 }
-.hero-blobs { position:absolute; inset:0; z-index:0; overflow:hidden; }
-.hero-blob { position:absolute; border-radius:50%; filter:blur(90px); will-change:transform; }
+.hero-blobs { position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+.hero-blob { position:absolute; border-radius:50%; filter:blur(90px); will-change:transform; pointer-events:none; }
 .hero-blob-1 {
   width:700px; height:700px;
   background:radial-gradient(circle,rgba(0,175,240,0.22) 0%,transparent 70%);
@@ -267,15 +267,15 @@ p:last-child { margin-bottom:0; }
   padding:calc(var(--nav-height) + 80px) 0 80px;
   background:var(--primary-dark); overflow:hidden;
 }
-.page-hero-blobs { position:absolute; inset:0; overflow:hidden; }
+.page-hero-blobs { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
 .page-hero-blob-1 {
-  position:absolute; border-radius:50%; filter:blur(80px);
+  position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none;
   width:500px; height:500px;
   background:radial-gradient(circle,rgba(0,175,240,0.18) 0%,transparent 70%);
   top:-200px; right:0;
 }
 .page-hero-blob-2 {
-  position:absolute; border-radius:50%; filter:blur(80px);
+  position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none;
   width:400px; height:400px;
   background:radial-gradient(circle,rgba(1,112,185,0.2) 0%,transparent 70%);
   bottom:-100px; left:-50px;
@@ -352,9 +352,9 @@ p:last-child { margin-bottom:0; }
 .bento-item.bento-tall  { grid-column:span 1; grid-row:span 2; min-height:380px; }
 .bento-item.bento-wide  { grid-column:span 4; min-height:160px; }
 .bento-item.bento-medium{ grid-column:span 1; min-height:180px; }
-.bento-bg { position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; transition:transform .5s ease; }
+.bento-bg { position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; transition:transform .5s ease; pointer-events:none; }
 .bento-item:hover .bento-bg { transform:scale(1.05); }
-.bento-overlay { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg,transparent 0%,rgba(1,0,102,0.75) 100%); }
+.bento-overlay { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg,transparent 0%,rgba(1,0,102,0.75) 100%); pointer-events:none; }
 .bento-content { position:relative; z-index:2; padding:28px; height:100%; display:flex; flex-direction:column; justify-content:flex-end; }
 .bento-content.top { justify-content:flex-start; }
 .bento-icon {
@@ -423,7 +423,7 @@ p:last-child { margin-bottom:0; }
 .team-card:hover .team-card-img { transform:scale(1.05); }
 .team-card-placeholder { width:100%; height:100%; background:linear-gradient(135deg,var(--primary-dark),var(--primary)); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.2); }
 .team-card-placeholder .icon { width:80px; height:80px; }
-.team-card-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(1,0,102,0.7) 0%,transparent 60%); opacity:0; transition:var(--transition); }
+.team-card-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(1,0,102,0.7) 0%,transparent 60%); opacity:0; transition:var(--transition); pointer-events:none; }
 .team-card:hover .team-card-overlay { opacity:1; }
 .team-card-body { padding:24px 20px; }
 .team-card-body h4 { margin-bottom:4px; color:var(--primary-dark); }
