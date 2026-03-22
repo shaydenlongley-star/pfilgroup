@@ -53,7 +53,9 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-photo-overlay"></div>
     <div class="hero-blobs">
       <div class="hero-blob hero-blob-1"></div>
       <div class="hero-blob hero-blob-2"></div>
@@ -67,7 +69,7 @@
           <span class="icon" data-icon="globe"></span>
           Kingdom of Tonga &amp; Vanuatu
         </div>
-        <h1>Building A<br><em>Better Tonga</em></h1>
+        <h1 class="stagger-words gradient-text">Building A Better Tonga</h1>
         <p>Pacific Finance &amp; Investment Ltd. is a diversified Pacific holding company driving economic growth through strategic investment, essential businesses, and deep community commitment.</p>
         <div class="hero-actions">
           <a href="who-we-are.html" class="btn btn-primary">
@@ -150,6 +152,98 @@
           <a href="who-we-are.html" class="btn btn-outline-blue">
             Our Story <span class="icon" data-icon="arrow-right"></span>
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CINEMATIC SECTION -->
+  <section class="cinematic-section">
+    <div class="cinematic-bg"></div>
+    <div class="cinematic-overlay"></div>
+    <div class="cinematic-content" data-reveal>
+      <span class="cinematic-eyebrow">Our Story</span>
+      <div class="cinematic-divider"></div>
+      <blockquote class="cinematic-quote">
+        "We invest in the Pacific because we <em>believe in the Pacific</em> — its people, its potential, and its future."
+      </blockquote>
+      <p class="cinematic-sub">From a single hardware store in Nukuʻalofa to a diversified group spanning retail, logistics, and telecommunications — every step has been guided by one conviction: that thoughtful investment builds better communities.</p>
+      <a href="who-we-are.html" class="btn btn-outline">Read Our Full Story <span class="icon" data-icon="arrow-right"></span></a>
+    </div>
+  </section>
+
+  <!-- PACIFIC MAP -->
+  <section class="pacific-map-section" id="pacific-map">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="eyebrow">Where We Operate</span>
+        <h2>Our Pacific Footprint</h2>
+        <div class="divider"></div>
+        <p>Operating across two Pacific nations — the Kingdom of Tonga and the Republic of Vanuatu — with plans to grow further across the region.</p>
+      </div>
+      <div class="pacific-map-wrap" data-reveal>
+        <svg viewBox="0 0 680 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ocean background -->
+          <rect width="680" height="380" rx="20" fill="url(#oceanGrad)"/>
+          <defs>
+            <radialGradient id="oceanGrad" cx="50%" cy="50%" r="70%">
+              <stop offset="0%" stop-color="#023a7a" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#010066" stop-opacity="1"/>
+            </radialGradient>
+          </defs>
+          <!-- Grid lines -->
+          <line x1="0" y1="95" x2="680" y2="95" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="190" x2="680" y2="190" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="285" x2="680" y2="285" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="170" y1="0" x2="170" y2="380" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="340" y1="0" x2="340" y2="380" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="510" y1="0" x2="510" y2="380" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <!-- Pacific label -->
+          <text x="340" y="50" text-anchor="middle" fill="rgba(255,255,255,0.08)" font-family="Georgia,serif" font-size="28" font-style="italic" letter-spacing="6">PACIFIC OCEAN</text>
+          <!-- Australia outline (simplified) -->
+          <path d="M95 210 C90 190 100 165 120 155 C145 140 165 145 180 165 C195 145 210 135 225 140 C245 148 250 170 240 185 C255 195 260 210 250 225 C235 245 215 248 200 240 C190 255 175 262 160 255 C145 265 128 258 118 245 C105 235 98 222 95 210Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <text x="178" y="200" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-family="Inter,sans-serif" font-size="9" font-weight="600" letter-spacing="1.5">AUSTRALIA</text>
+          <!-- New Zealand (simplified) -->
+          <path d="M295 275 C291 265 292 255 298 250 C305 245 312 248 314 258 C318 252 323 248 328 250 C334 253 334 262 330 270 C326 278 318 280 312 276 C308 282 300 282 295 275Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="312" y="292" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" font-size="8" font-weight="600" letter-spacing="1">NZ</text>
+          <!-- PNG (simplified) -->
+          <path d="M230 148 C240 138 258 135 268 142 C278 132 292 130 300 138 C308 128 315 126 318 134 C310 145 300 148 290 145 C282 155 268 158 258 152 C248 158 236 156 230 148Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <!-- Fiji (small dot) -->
+          <circle cx="415" cy="240" r="5" fill="rgba(255,255,255,0.12)"/>
+          <text x="415" y="255" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" font-size="8">FIJI</text>
+          <!-- Samoa (small) -->
+          <circle cx="475" cy="215" r="4" fill="rgba(255,255,255,0.1)"/>
+          <text x="475" y="228" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-family="Inter,sans-serif" font-size="7">SAMOA</text>
+          <!-- Connection line between Tonga & Vanuatu -->
+          <line x1="380" y1="252" x2="448" y2="268" stroke="rgba(0,175,240,0.25)" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <!-- VANUATU PIN -->
+          <g class="map-location" transform="translate(362,235)">
+            <circle class="map-pulse" cx="0" cy="0" r="8" fill="rgba(0,175,240,0.3)" stroke="none"/>
+            <circle class="map-pulse map-pulse-2" cx="0" cy="0" r="8" fill="rgba(0,175,240,0.2)" stroke="none"/>
+            <circle cx="0" cy="0" r="7" fill="#00aff0" stroke="#fff" stroke-width="2.5"/>
+            <circle cx="0" cy="0" r="3" fill="#fff"/>
+            <text x="0" y="-16" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="11" font-weight="700">VANUATU</text>
+          </g>
+          <!-- TONGA PIN -->
+          <g class="map-location" transform="translate(448,258)">
+            <circle class="map-pulse" cx="0" cy="0" r="8" fill="rgba(0,175,240,0.3)" stroke="none"/>
+            <circle class="map-pulse map-pulse-2" cx="0" cy="0" r="8" fill="rgba(0,175,240,0.2)" stroke="none"/>
+            <circle cx="0" cy="0" r="7" fill="#0170b9" stroke="#fff" stroke-width="2.5"/>
+            <circle cx="0" cy="0" r="3" fill="#fff"/>
+            <text x="0" y="-16" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="11" font-weight="700">TONGA</text>
+          </g>
+        </svg>
+        <div class="map-location-info" data-reveal>
+          <div class="map-loc">
+            <div class="map-loc-dot"></div>
+            <strong>Kingdom of Tonga</strong>
+            <span>PTH Tonga · DTL · WanTok Tonga</span>
+          </div>
+          <div class="map-loc">
+            <div class="map-loc-dot" style="background:#00aff0;box-shadow:0 0 12px rgba(0,175,240,0.7);"></div>
+            <strong>Republic of Vanuatu</strong>
+            <span>PTH Vanuatu · WanTok Vanuatu</span>
+          </div>
         </div>
       </div>
     </div>

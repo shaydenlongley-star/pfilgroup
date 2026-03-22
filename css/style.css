@@ -617,3 +617,413 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
   .footer-brand-statement { font-size:1.8rem; }
   .back-to-top { bottom:20px; right:20px; }
 }
+
+/* ============================================
+   PREMIUM UPGRADES
+   ============================================ */
+
+/* SCROLL PROGRESS BAR */
+.scroll-progress {
+  position:fixed; top:0; left:0; z-index:10001;
+  height:3px; width:0%;
+  background:linear-gradient(90deg,var(--primary-dark),var(--primary),var(--primary-light));
+  pointer-events:none; transition:width 0.08s linear;
+  box-shadow:0 0 10px rgba(0,175,240,0.5);
+}
+
+/* KEN BURNS HERO PHOTO */
+.hero-photo {
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:url('../images/DJI_0148-scaled.jpg');
+  background-size:cover; background-position:center 40%;
+  animation:kenBurns 24s ease-in-out infinite alternate;
+}
+.hero-photo-overlay {
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(135deg,rgba(1,0,102,0.90) 0%,rgba(1,0,102,0.65) 55%,rgba(1,112,185,0.45) 100%);
+}
+@keyframes kenBurns {
+  0%   { transform:scale(1)    translateX(0); }
+  100% { transform:scale(1.15) translateX(-18px); }
+}
+
+/* ANIMATED GRADIENT TEXT */
+.gradient-text {
+  background:linear-gradient(120deg,#fff 0%,var(--primary-light) 40%,#fff 75%,var(--primary-light) 100%);
+  background-size:250% auto;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:gradShift 5s linear infinite;
+}
+@keyframes gradShift { 0%{background-position:0% center} 100%{background-position:250% center} }
+
+/* WORD STAGGER */
+.stagger-words .w {
+  display:inline-block;
+  opacity:0; transform:translateY(22px);
+  transition:opacity 0.55s cubic-bezier(.4,0,.2,1), transform 0.55s cubic-bezier(.4,0,.2,1);
+}
+.stagger-words.revealed .w { opacity:1; transform:translateY(0); }
+
+/* SECTION DOT NAV */
+.dot-nav {
+  position:fixed; right:22px; top:50%; transform:translateY(-50%);
+  z-index:800; display:flex; flex-direction:column; gap:10px;
+}
+.dot-nav-dot {
+  width:8px; height:8px; border-radius:50%;
+  background:rgba(1,112,185,0.25); border:1.5px solid rgba(1,112,185,0.45);
+  cursor:pointer; transition:all 0.3s ease; position:relative;
+}
+.dot-nav-dot.active {
+  background:var(--primary-light); border-color:var(--primary-light);
+  transform:scale(1.55); box-shadow:0 0 10px rgba(0,175,240,0.6);
+}
+.dot-nav-dot::before {
+  content:attr(data-label);
+  position:absolute; right:18px; top:50%; transform:translateY(-50%);
+  background:rgba(1,0,102,0.92); color:#fff; backdrop-filter:blur(8px);
+  font-size:0.72rem; font-weight:600; white-space:nowrap;
+  padding:4px 10px; border-radius:4px; letter-spacing:.5px;
+  opacity:0; pointer-events:none; transition:opacity 0.2s ease;
+}
+.dot-nav-dot:hover::before { opacity:1; }
+@media (max-width:900px) { .dot-nav { display:none; } }
+
+/* FULLSCREEN MOBILE MENU */
+@media (max-width:900px) {
+  .nav-menu {
+    display:flex !important;
+    position:fixed; inset:0; top:0;
+    background:rgba(1,0,102,0.97); backdrop-filter:blur(28px);
+    flex-direction:column; align-items:center; justify-content:center;
+    gap:4px; padding:40px 28px; z-index:999;
+    opacity:0; transform:translateX(100%); pointer-events:none;
+    transition:opacity 0.35s ease, transform 0.35s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-menu.open { opacity:1; transform:translateX(0); pointer-events:all; }
+  .nav-menu a {
+    font-size:1.5rem !important; padding:14px 32px !important;
+    font-family:var(--font-display) !important; font-weight:700 !important;
+    color:rgba(255,255,255,0.8) !important;
+    border-radius:var(--radius) !important; width:100%; text-align:center;
+  }
+  .nav-menu a:hover, .nav-menu a.active { color:#fff !important; background:rgba(255,255,255,0.07) !important; }
+  .nav-menu a::after { display:none !important; }
+  .nav-cta { background:var(--primary) !important; color:#fff !important; margin-top:8px !important; }
+}
+
+/* IMAGE LIGHTBOX */
+.lightbox {
+  position:fixed; inset:0; z-index:9990;
+  background:rgba(0,0,8,0.96); backdrop-filter:blur(14px);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity 0.3s ease;
+}
+.lightbox.open { opacity:1; pointer-events:all; }
+.lightbox-img {
+  max-width:88vw; max-height:88vh; object-fit:contain;
+  border-radius:12px; box-shadow:0 40px 100px rgba(0,0,0,0.7);
+  transform:scale(0.92); transition:transform 0.35s cubic-bezier(.4,0,.2,1); display:block;
+}
+.lightbox.open .lightbox-img { transform:scale(1); }
+.lightbox-close {
+  position:absolute; top:20px; right:20px; width:44px; height:44px;
+  border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+  color:#fff; font-size:1.6rem; cursor:pointer; line-height:1;
+  display:flex; align-items:center; justify-content:center; transition:background 0.2s;
+}
+.lightbox-close:hover { background:rgba(255,255,255,0.22); }
+.lightbox-prev, .lightbox-next {
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18);
+  color:#fff; cursor:pointer; font-size:1.4rem;
+  display:flex; align-items:center; justify-content:center; transition:background 0.2s;
+}
+.lightbox-prev { left:20px; } .lightbox-next { right:20px; }
+.lightbox-prev:hover, .lightbox-next:hover { background:rgba(255,255,255,0.2); }
+.lightbox-caption {
+  position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+  color:rgba(255,255,255,0.5); font-size:0.82rem; letter-spacing:.5px;
+}
+.photo-grid img { cursor:zoom-in; }
+
+/* CINEMATIC SECTION */
+.cinematic-section {
+  position:relative; min-height:75vh;
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.cinematic-bg {
+  position:absolute; inset:-15% 0; z-index:0; pointer-events:none;
+  background-image:url('../images/DJI_0148-scaled.jpg');
+  background-size:cover; background-position:center 40%; will-change:transform;
+}
+.cinematic-overlay {
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(180deg,rgba(1,0,102,0.82) 0%,rgba(1,0,102,0.58) 50%,rgba(1,0,102,0.88) 100%);
+}
+.cinematic-content {
+  position:relative; z-index:2; max-width:860px;
+  padding:100px 28px; text-align:center;
+}
+.cinematic-eyebrow {
+  display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:3px;
+  text-transform:uppercase; color:var(--primary-light); margin-bottom:28px;
+  padding-bottom:12px; border-bottom:1px solid rgba(0,175,240,0.35);
+}
+.cinematic-quote {
+  font-family:var(--font-display); font-size:clamp(2rem,4.5vw,3.4rem);
+  font-weight:700; color:#fff; line-height:1.25; font-style:italic; margin-bottom:32px;
+}
+.cinematic-quote em { color:var(--primary-light); font-style:normal; }
+.cinematic-divider { width:56px; height:2px; margin:0 auto 28px; background:linear-gradient(90deg,var(--primary),var(--primary-light)); }
+.cinematic-sub { color:rgba(255,255,255,0.65); font-size:1.02rem; line-height:1.85; max-width:580px; margin:0 auto 36px; }
+
+/* PACIFIC MAP */
+.pacific-map-section { padding:96px 0; background:var(--primary-dark); position:relative; overflow:hidden; }
+.pacific-map-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none; opacity:.04;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") center / 200px;
+}
+.pacific-map-section .section-header { color:#fff; }
+.pacific-map-section .section-header h2 { color:#fff; }
+.pacific-map-section .eyebrow { color:var(--primary-light); }
+.pacific-map-section .section-header p { color:rgba(255,255,255,0.6); }
+.pacific-map-section .divider { background:linear-gradient(90deg,var(--primary-light),#fff); }
+.pacific-map-wrap { max-width:680px; margin:0 auto; position:relative; }
+.map-pulse {
+  animation:mapRipple 2.6s ease-out infinite; transform-origin:center;
+}
+.map-pulse-2 { animation-delay:0.5s; }
+@keyframes mapRipple {
+  0%   { transform:scale(1);   opacity:0.6; }
+  70%  { transform:scale(2.4); opacity:0; }
+  100% { transform:scale(2.4); opacity:0; }
+}
+.map-location-info { display:flex; justify-content:center; gap:48px; margin-top:36px; flex-wrap:wrap; }
+.map-loc { text-align:center; color:#fff; }
+.map-loc-dot { width:12px; height:12px; border-radius:50%; background:var(--primary-light); margin:0 auto 8px; box-shadow:0 0 12px rgba(0,175,240,0.7); }
+.map-loc strong { display:block; font-size:0.92rem; font-weight:600; margin-bottom:2px; }
+.map-loc span { font-size:0.78rem; color:rgba(255,255,255,0.5); letter-spacing:.5px; }
+
+/* CARD 3D TILT */
+.tiltable { transform-style:preserve-3d; }
+
+/* EXTRA DELAYS */
+[data-delay="7"]{transition-delay:.56s} [data-delay="8"]{transition-delay:.64s} [data-delay="9"]{transition-delay:.72s}
+
+/* ============================================
+   PREMIUM UPGRADES
+   ============================================ */
+
+/* SCROLL PROGRESS BAR */
+.scroll-progress {
+  position:fixed; top:0; left:0; z-index:10001;
+  height:3px; width:0%;
+  background:linear-gradient(90deg,var(--primary-dark),var(--primary),var(--primary-light));
+  pointer-events:none; transition:width 0.08s linear;
+  box-shadow:0 0 10px rgba(0,175,240,0.6);
+}
+
+/* KEN BURNS HERO PHOTO LAYER */
+.hero-photo {
+  position:absolute; inset:0; z-index:0;
+  background-image:url('../images/DJI_0148-scaled.jpg');
+  background-size:cover; background-position:center 40%;
+  animation:kenBurns 22s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+.hero-photo-overlay {
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(135deg,rgba(1,0,102,0.88) 0%,rgba(1,0,102,0.65) 60%,rgba(1,112,185,0.45) 100%);
+}
+@keyframes kenBurns {
+  0%   { transform:scale(1)    translateX(0px); }
+  100% { transform:scale(1.14) translateX(-20px); }
+}
+
+/* ANIMATED GRADIENT TEXT */
+.gradient-text {
+  background:linear-gradient(120deg,#fff 0%,var(--primary-light) 40%,#fff 80%,var(--primary-light) 100%);
+  background-size:250% auto;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:gradShift 5s linear infinite;
+}
+@keyframes gradShift { 0%{background-position:0% center} 100%{background-position:250% center} }
+
+/* WORD STAGGER */
+.stagger-words .w {
+  display:inline-block;
+  opacity:0; transform:translateY(24px);
+  transition:opacity 0.5s cubic-bezier(.4,0,.2,1), transform 0.5s cubic-bezier(.4,0,.2,1);
+}
+.stagger-words.revealed .w { opacity:1; transform:translateY(0); }
+
+/* SECTION DOT NAV */
+.dot-nav {
+  position:fixed; right:22px; top:50%; transform:translateY(-50%);
+  z-index:800; display:flex; flex-direction:column; gap:10px;
+}
+.dot-nav-dot {
+  width:8px; height:8px; border-radius:50%;
+  background:rgba(255,255,255,0.25); border:1.5px solid rgba(1,112,185,0.4);
+  cursor:pointer; transition:all 0.3s ease; position:relative;
+}
+.dot-nav-dot.active {
+  background:var(--primary-light); border-color:var(--primary-light);
+  transform:scale(1.5); box-shadow:0 0 8px rgba(0,175,240,0.6);
+}
+.dot-nav-dot::before {
+  content:attr(data-label);
+  position:absolute; right:18px; top:50%; transform:translateY(-50%);
+  background:rgba(1,0,102,0.9); color:#fff; backdrop-filter:blur(8px);
+  font-size:0.72rem; font-weight:600; white-space:nowrap;
+  padding:4px 10px; border-radius:4px; letter-spacing:.5px;
+  opacity:0; pointer-events:none; transition:opacity 0.2s ease;
+}
+.dot-nav-dot:hover::before { opacity:1; }
+@media (max-width:768px) { .dot-nav { display:none; } }
+
+/* FULLSCREEN MOBILE MENU OVERRIDE */
+@media (max-width:900px) {
+  .nav-menu {
+    display:flex !important;
+    position:fixed; inset:0; top:0;
+    background:rgba(1,0,102,0.97); backdrop-filter:blur(28px);
+    flex-direction:column; align-items:center; justify-content:center;
+    gap:4px; padding:40px 28px;
+    z-index:999;
+    opacity:0; transform:translateX(100%); pointer-events:none;
+    transition:opacity 0.35s ease, transform 0.35s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-menu.open { opacity:1; transform:translateX(0); pointer-events:all; }
+  .nav-menu a {
+    font-size:1.6rem !important; padding:14px 28px !important;
+    font-family:var(--font-display) !important; font-weight:700 !important;
+    color:rgba(255,255,255,0.85) !important;
+    border-radius:var(--radius) !important;
+    transition:color 0.2s ease, background 0.2s ease !important;
+  }
+  .nav-menu a:hover, .nav-menu a.active { color:#fff !important; background:rgba(255,255,255,0.06) !important; }
+  .nav-menu a::after { display:none !important; }
+  .nav-cta { background:var(--primary) !important; border-radius:var(--radius-sm) !important; }
+}
+
+/* IMAGE LIGHTBOX */
+.lightbox {
+  position:fixed; inset:0; z-index:9990;
+  background:rgba(0,0,8,0.96); backdrop-filter:blur(12px);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity 0.3s ease;
+}
+.lightbox.open { opacity:1; pointer-events:all; }
+.lightbox-img {
+  max-width:88vw; max-height:88vh; object-fit:contain;
+  border-radius:12px; box-shadow:0 40px 100px rgba(0,0,0,0.7);
+  transform:scale(0.92); transition:transform 0.35s cubic-bezier(.4,0,.2,1);
+  display:block;
+}
+.lightbox.open .lightbox-img { transform:scale(1); }
+.lightbox-close {
+  position:absolute; top:20px; right:20px;
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+  color:#fff; font-size:1.5rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background 0.2s; line-height:1;
+}
+.lightbox-close:hover { background:rgba(255,255,255,0.22); }
+.lightbox-prev, .lightbox-next {
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18);
+  color:#fff; cursor:pointer; font-size:1.4rem;
+  display:flex; align-items:center; justify-content:center;
+  transition:background 0.2s;
+}
+.lightbox-prev { left:20px; }
+.lightbox-next { right:20px; }
+.lightbox-prev:hover, .lightbox-next:hover { background:rgba(255,255,255,0.18); }
+.photo-grid img { cursor:zoom-in; transition:filter 0.3s ease, transform 0.3s ease; }
+.photo-grid img:hover { filter:brightness(1.07); }
+
+/* CINEMATIC "OUR STORY" SECTION */
+.cinematic-section {
+  position:relative; min-height:75vh;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden; text-align:center;
+}
+.cinematic-bg {
+  position:absolute; inset:0; z-index:0;
+  background-image:url('../images/DJI_0148-scaled.jpg');
+  background-size:cover; background-position:center 40%;
+  pointer-events:none;
+}
+.cinematic-parallax-inner { will-change:transform; height:130%; position:absolute; inset:-15% 0; background-size:cover; background-position:center; }
+.cinematic-overlay {
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(180deg,rgba(1,0,102,0.82) 0%,rgba(1,0,102,0.6) 50%,rgba(1,0,102,0.9) 100%);
+}
+.cinematic-content {
+  position:relative; z-index:2; max-width:860px; padding:100px 28px;
+}
+.cinematic-eyebrow {
+  display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:3px;
+  text-transform:uppercase; color:var(--primary-light); margin-bottom:32px;
+  border-bottom:1px solid rgba(0,175,240,0.4); padding-bottom:10px;
+}
+.cinematic-quote {
+  font-family:var(--font-display); font-size:clamp(1.8rem,4.5vw,3.2rem);
+  font-weight:700; color:#fff; line-height:1.25; font-style:italic;
+  margin-bottom:36px;
+}
+.cinematic-quote em { color:var(--primary-light); font-style:normal; }
+.cinematic-sub {
+  color:rgba(255,255,255,0.65); font-size:1rem; line-height:1.8;
+  max-width:600px; margin:0 auto 36px;
+}
+.cinematic-divider {
+  width:60px; height:2px; margin:0 auto 32px;
+  background:linear-gradient(90deg,var(--primary),var(--primary-light));
+}
+
+/* PACIFIC MAP SECTION */
+.pacific-map-section { padding:96px 0; background:var(--primary-dark); position:relative; overflow:hidden; }
+.pacific-map-section::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") center / 200px; opacity:.035;
+}
+.pacific-map-section .section-header h2,
+.pacific-map-section .section-header .eyebrow { color:rgba(255,255,255,0.9); }
+.pacific-map-section .section-header p { color:rgba(255,255,255,0.6); }
+.pacific-map-wrap {
+  position:relative; max-width:680px; margin:56px auto 0;
+}
+.pacific-map-wrap svg { width:100%; height:auto; }
+.map-location {
+  cursor:pointer;
+}
+.map-pulse {
+  animation:mapRipple 2.4s ease-out infinite;
+  transform-origin:center;
+}
+.map-pulse-2 { animation-delay:0.4s; }
+@keyframes mapRipple {
+  0%  { transform:scale(1);   opacity:0.7; }
+  70% { transform:scale(2.2); opacity:0; }
+  100%{ transform:scale(2.2); opacity:0; }
+}
+.map-location-label {
+  font-size:11px; fill:#fff; font-family:'Inter',sans-serif; font-weight:600;
+  letter-spacing:0.5px;
+}
+
+/* CARD 3D TILT */
+.tiltable { transform-style:preserve-3d; transition:transform 0.15s ease, box-shadow 0.15s ease; }
+
+/* IMAGE PARALLAX WRAPPER */
+.parallax-wrap { overflow:hidden; }
+.parallax-img { will-change:transform; }
+
+/* DELAY EXTRA */
+[data-delay="7"]{transition-delay:.56s} [data-delay="8"]{transition-delay:.64s}
