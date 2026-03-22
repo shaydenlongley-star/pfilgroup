@@ -648,7 +648,7 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
 /* KEN BURNS HERO PHOTO */
 .hero-photo {
   position:absolute; inset:0; z-index:0; pointer-events:none;
-  background-image:url('../images/DJI_0148-scaled.jpg');
+  background-image:url('../images/homepage-banner-01.jpg');
   background-size:cover; background-position:center 40%;
   animation:kenBurns 24s ease-in-out infinite alternate;
 }
@@ -769,7 +769,7 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
 }
 .cinematic-bg {
   position:absolute; inset:-15% 0; z-index:0; pointer-events:none;
-  background-image:url('../images/DJI_0148-scaled.jpg');
+  background-image:url('../images/homepage-banner-01.jpg');
   background-size:cover; background-position:center 40%; will-change:transform;
 }
 .cinematic-overlay {
@@ -842,7 +842,7 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
 /* KEN BURNS HERO PHOTO LAYER */
 .hero-photo {
   position:absolute; inset:0; z-index:0;
-  background-image:url('../images/DJI_0148-scaled.jpg');
+  background-image:url('../images/homepage-banner-01.jpg');
   background-size:cover; background-position:center 40%;
   animation:kenBurns 22s ease-in-out infinite alternate;
   pointer-events:none;
@@ -969,7 +969,7 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
 }
 .cinematic-bg {
   position:absolute; inset:0; z-index:0;
-  background-image:url('../images/DJI_0148-scaled.jpg');
+  background-image:url('../images/homepage-banner-01.jpg');
   background-size:cover; background-position:center 40%;
   pointer-events:none;
 }
