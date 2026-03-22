@@ -443,6 +443,19 @@ p:last-child { margin-bottom:0; }
 .business-card-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
 .tag { background:var(--bg-light); color:var(--primary); font-size:0.75rem; font-weight:600; padding:4px 12px; border-radius:20px; border:1px solid var(--border); }
 
+/* BUSINESSES GRID */
+.businesses-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+.biz-card { background:var(--bg-white); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); border:1px solid var(--border); transition:var(--transition); cursor:pointer; }
+.biz-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.biz-card-img { height:260px; background-size:cover; background-position:center; position:relative; transition:transform .5s ease; }
+.biz-card:hover .biz-card-img { transform:scale(1.04); }
+.biz-card-img-overlay { position:absolute; inset:0; background:linear-gradient(180deg,transparent 35%,rgba(1,0,102,0.72) 100%); }
+.biz-card-icon { position:absolute; bottom:20px; left:24px; width:46px; height:46px; background:rgba(255,255,255,0.15); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; color:#fff; backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.2); }
+.biz-card-icon .icon { width:22px; height:22px; }
+.biz-card-body { padding:28px 30px; }
+.biz-card-body h3 { font-size:1.25rem; margin-bottom:10px; color:var(--primary-dark); }
+.biz-card-body p { font-size:0.88rem; line-height:1.7; color:var(--text-mid); margin-bottom:18px; }
+
 /* NEWS CARDS */
 .news-card { background:var(--bg-white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); border:1px solid var(--border); transition:var(--transition); }
 .news-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
@@ -614,6 +627,7 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
   .cta-actions { align-items:center; }
   .bento-grid { grid-template-columns:1fr; }
   .bento-item.bento-large,.bento-item.bento-wide,.bento-item.bento-tall { grid-column:span 1; grid-row:span 1; min-height:260px; }
+  .businesses-grid { grid-template-columns:1fr; }
   .footer-brand-statement { font-size:1.8rem; }
   .back-to-top { bottom:20px; right:20px; }
 }
