@@ -93,9 +93,12 @@
             </div>
           </div>
 
-          <a href="https://maps.google.com/?q=Nuku%27alofa,+Tonga" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;width:100%;height:200px;background:linear-gradient(135deg,#010066,#0170b9);border-radius:16px;margin-top:32px;text-decoration:none;transition:var(--transition);color:rgba(255,255,255,0.9);" onmouseover="this.style.opacity='0.9';this.style.transform='scale(0.99)'" onmouseout="this.style.opacity='1';this.style.transform=''">
-            <span class="icon" style="width:40px;height:40px;color:rgba(255,255,255,0.7);" data-icon="map-pin"></span>
-            <span style="font-size:0.9rem;font-weight:600;">View on Google Maps — Nukuʻalofa, Tonga</span>
+          <a href="https://maps.google.com/?q=Nuku%27alofa,+Tonga" target="_blank" rel="noopener" style="display:block;width:100%;height:200px;border-radius:16px;margin-top:32px;text-decoration:none;transition:var(--transition);position:relative;overflow:hidden;" onmouseover="this.style.opacity='0.9';this.style.transform='scale(0.99)'" onmouseout="this.style.opacity='1';this.style.transform=''">
+            <img src="images/pfil-contact-servicedesk.jpg" alt="PFIL Group service desk" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.background='linear-gradient(135deg,#010066,#0170b9)'">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(1,0,102,0.7) 0%,transparent 60%);display:flex;align-items:flex-end;padding:16px;gap:10px;pointer-events:none;">
+              <span class="icon" style="width:24px;height:24px;color:#fff;flex-shrink:0;" data-icon="map-pin"></span>
+              <span style="color:#fff;font-size:0.9rem;font-weight:600;">View on Google Maps — Nukuʻalofa, Tonga</span>
+            </div>
           </a>
         </div>
 
