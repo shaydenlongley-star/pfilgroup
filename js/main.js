@@ -15,21 +15,65 @@
   if (!isTouchDevice) {
     const cursor = document.querySelector('.cursor');
     const ring   = document.querySelector('.cursor-ring');
-    let mx = -100, my = -100, rx = -100, ry = -100;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    (function animCursor() {
-      if (cursor) { cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; }
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
-      requestAnimationFrame(animCursor);
-    })();
-    const hoverSel = 'a, button, [role="button"], .btn, .bento-item, .card, .team-card, .news-card, label, select, input, textarea';
-    document.querySelectorAll(hoverSel).forEach(el => {
-      el.addEventListener('mouseenter', () => { cursor?.classList.add('hover'); ring?.classList.add('hover'); });
-      el.addEventListener('mouseleave', () => { cursor?.classList.remove('hover'); ring?.classList.remove('hover'); });
-    });
-    document.addEventListener('mousedown', () => ring?.classList.add('click'));
-    document.addEventListener('mouseup',   () => ring?.classList.remove('click'));
+    if (cursor && ring) {
+      let mx = -200, my = -200, rx = -200, ry = -200;
+      let visible = false;
+
+      // Hide until first real mouse movement
+      cursor.style.opacity = '0';
+      ring.style.opacity = '0';
+
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        if (!visible) {
+          visible = true;
+          cursor.style.opacity = '';
+          ring.style.opacity = '';
+        }
+      }, { passive: true });
+
+      // Hide when mouse leaves the browser window
+      document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+        ring.style.opacity = '0';
+        visible = false;
+      });
+      document.addEventListener('mouseenter', e => {
+        mx = e.clientX; my = e.clientY;
+        cursor.style.opacity = '';
+        ring.style.opacity = '';
+        visible = true;
+      });
+
+      // RAF loop — always running, cursor just follows coords
+      (function animCursor() {
+        cursor.style.left = mx + 'px';
+        cursor.style.top  = my + 'px';
+        rx += (mx - rx) * 0.14;
+        ry += (my - ry) * 0.14;
+        ring.style.left = rx + 'px';
+        ring.style.top  = ry + 'px';
+        requestAnimationFrame(animCursor);
+      })();
+
+      // Hover state — use event delegation so dynamically added elements work
+      const hoverSel = 'a, button, [role="button"], .btn, .bento-item, .card, .team-card, .news-card, label, select, input, textarea, .filter-btn, .social-btn, .back-to-top, .nav-logo, .apply-link, .news-read-more';
+      document.addEventListener('mouseover', e => {
+        if (e.target.closest(hoverSel)) {
+          cursor.classList.add('hover');
+          ring.classList.add('hover');
+        }
+      });
+      document.addEventListener('mouseout', e => {
+        if (e.target.closest(hoverSel) && !e.relatedTarget?.closest(hoverSel)) {
+          cursor.classList.remove('hover');
+          ring.classList.remove('hover');
+        }
+      });
+
+      document.addEventListener('mousedown', () => ring.classList.add('click'));
+      document.addEventListener('mouseup',   () => ring.classList.remove('click'));
+    }
   }
 
   /* NAVBAR */
