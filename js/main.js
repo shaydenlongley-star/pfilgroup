@@ -26,19 +26,35 @@
   if (navbar) {
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
   }
+  function lockScroll() {
+    const scrollY = window.scrollY;
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.dataset.scrollY = scrollY;
+  }
+  function unlockScroll() {
+    const scrollY = parseInt(document.body.dataset.scrollY || '0');
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollY);
+  }
   if (toggle && navMenu) {
     toggle.addEventListener('click', () => {
       const open = navMenu.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(open));
-      document.body.style.overflow = open ? 'hidden' : '';
+      open ? lockScroll() : unlockScroll();
     });
     document.addEventListener('click', e => {
       if (navbar && !navbar.contains(e.target) && navMenu.classList.contains('open')) {
-        navMenu.classList.remove('open'); document.body.style.overflow = '';
+        navMenu.classList.remove('open'); unlockScroll();
       }
     });
     navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      navMenu.classList.remove('open'); document.body.style.overflow = '';
+      navMenu.classList.remove('open'); unlockScroll();
     }));
   }
 
