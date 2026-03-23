@@ -149,7 +149,7 @@
     sections.forEach((sec, i) => {
       const dot = document.createElement('button');
       dot.className = 'dot-nav-dot';
-      const label = sec.querySelector('h1,h2')?.textContent?.trim().slice(0, 22) || `Section ${i+1}`;
+      const label = sec.getAttribute('data-nav-label') || sec.querySelector('h1,h2')?.textContent?.trim().slice(0, 28) || `Section ${i+1}`;
       dot.setAttribute('data-label', label);
       dot.setAttribute('aria-label', `Go to: ${label}`);
       dot.addEventListener('click', () => window.scrollTo({ top: sec.offsetTop - 80, behavior: 'smooth' }));
