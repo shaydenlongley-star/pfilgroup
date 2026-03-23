@@ -596,6 +596,21 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
 .filter-btn { padding:8px 20px; border-radius:24px; border:1.5px solid var(--border); background:var(--bg-white); color:var(--text-mid); font-size:0.86rem; font-weight:600; cursor:pointer; transition:var(--transition-fast); font-family:var(--font-body); }
 .filter-btn:hover, .filter-btn.active { background:var(--primary); border-color:var(--primary); color:#fff; }
 
+/* CONTACT GRID */
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:start;
+}
+
+/* PHOTO GRID */
+.photo-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
 /* RESPONSIVE */
 @media (max-width:1024px) {
   .footer-grid { grid-template-columns:1fr 1fr; gap:36px; }
@@ -614,6 +629,7 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
   .split,.split.reverse { grid-template-columns:1fr; gap:48px; direction:ltr; }
   .split-img img { height:320px; }
   .grid-2,.grid-3 { grid-template-columns:1fr; }
+  .contact-grid { grid-template-columns:1fr; gap:40px; }
   .hero { min-height:auto; padding:calc(var(--nav-height) + 80px) 0 80px; }
   .hero-scroll { display:none; }
 }
@@ -630,6 +646,15 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
   .businesses-grid { grid-template-columns:1fr; }
   .footer-brand-statement { font-size:1.8rem; }
   .back-to-top { bottom:20px; right:20px; }
+  .split-img img { height:240px; }
+  .photo-grid { grid-template-columns:1fr; }
+  .job-card { flex-direction:column; }
+  .btn { white-space:normal; }
+  .page-hero-blob-1 { width:280px; height:280px; }
+  .page-hero-blob-2 { width:220px; height:220px; }
+  .cinematic-content { padding:72px 20px; }
+  .pacific-map-section { padding:64px 0; }
+  .map-location-info { gap:28px; }
 }
 
 /* ============================================
@@ -896,7 +921,7 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
   opacity:0; pointer-events:none; transition:opacity 0.2s ease;
 }
 .dot-nav-dot:hover::before { opacity:1; }
-@media (max-width:768px) { .dot-nav { display:none; } }
+@media (max-width:900px) { .dot-nav { display:none; } }
 
 /* FULLSCREEN MOBILE MENU OVERRIDE */
 @media (max-width:900px) {
