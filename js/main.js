@@ -4,6 +4,10 @@
 (function () {
   'use strict';
 
+  /* PREVENT SCROLL RESTORE ON REFRESH */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
   /* SCROLL PROGRESS BAR */
   const prog = document.createElement('div');
   prog.className = 'scroll-progress';
