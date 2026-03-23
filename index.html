@@ -182,129 +182,123 @@
       <div class="pacific-map-wrap" data-reveal>
         <!-- SVG Pacific Map — equirectangular projection, 155°E–200°E / 5°S–35°S -->
         <!-- x = (lon-155)/45*880  |  y = (-5-lat)/30*420  (lat negative for S) -->
-        <div style="width:100%;border-radius:20px;overflow:hidden;background:#040d1a;line-height:0;">
+        <div style="width:100%;border-radius:20px;overflow:hidden;background:#5bbdd6;line-height:0;">
         <svg viewBox="0 0 880 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" aria-label="Map of the South Pacific showing Tonga and Vanuatu">
-          <defs>
-            <radialGradient id="pg" cx="38%" cy="55%" r="70%">
-              <stop offset="0%" stop-color="#0d2240"/><stop offset="100%" stop-color="#040d1a"/>
-            </radialGradient>
-          </defs>
-          <!-- Ocean -->
-          <rect width="880" height="420" fill="url(#pg)"/>
-          <!-- Grid lines -->
-          <g stroke="rgba(255,255,255,0.04)" stroke-width="0.5" fill="none">
-            <line x1="0" y1="70" x2="880" y2="70"/><line x1="0" y1="140" x2="880" y2="140"/>
-            <line x1="0" y1="210" x2="880" y2="210"/><line x1="0" y1="280" x2="880" y2="280"/>
-            <line x1="0" y1="350" x2="880" y2="350"/>
-            <line x1="98" y1="0" x2="98" y2="420"/><line x1="196" y1="0" x2="196" y2="420"/>
-            <line x1="293" y1="0" x2="293" y2="420"/><line x1="391" y1="0" x2="391" y2="420"/>
-            <line x1="587" y1="0" x2="587" y2="420"/><line x1="684" y1="0" x2="684" y2="420"/>
-            <line x1="782" y1="0" x2="782" y2="420"/>
-          </g>
-          <!-- 180° Dateline -->
-          <line x1="489" y1="0" x2="489" y2="420" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="6,4" fill="none"/>
-          <!-- Grid labels -->
-          <g fill="rgba(255,255,255,0.18)" font-size="9" font-family="Inter,sans-serif">
-            <text x="196" y="11" text-anchor="middle">165°E</text>
-            <text x="293" y="11" text-anchor="middle">170°E</text>
-            <text x="391" y="11" text-anchor="middle">175°E</text>
-            <text x="490" y="11" text-anchor="middle">180°</text>
-            <text x="587" y="11" text-anchor="middle">185°E</text>
-            <text x="8" y="73">10°S</text><text x="8" y="143">15°S</text>
-            <text x="8" y="213">20°S</text><text x="8" y="283">25°S</text>
-          </g>
-          <!-- Islands — equirectangular positions, sized roughly proportional -->
-          <g fill="#1e3a5f" stroke="#2a4d74" stroke-width="0.4">
-            <!-- Solomon Islands (partial, NW corner) 160°E,-9.5°S → 102,63 -->
+          <!-- Ocean — Google Maps teal tinted to brand blue -->
+          <rect width="880" height="420" fill="#5bbdd6"/>
+          <!-- Islands — pale/light so they stand out from water -->
+          <g fill="#d6ecf0" stroke="#b0d4de" stroke-width="0.6">
+            <!-- Solomon Islands (partial) -->
             <ellipse cx="102" cy="63" rx="18" ry="6"/>
             <ellipse cx="119" cy="56" rx="12" ry="5"/>
             <ellipse cx="136" cy="77" rx="12" ry="4"/>
             <circle cx="88" cy="52" r="3"/>
-            <!-- Santa Cruz 166°E,-10.5°S → 215,77 -->
-            <circle cx="215" cy="77" r="5"/>
-            <!-- New Caledonia — elongated 163.6°E,-20.7°S → 168,219 to 167.3°E,-22.2°S → 241,240 -->
-            <path d="M171,216 C181,215 200,219 220,226 C233,230 240,236 244,240 L240,243 C234,239 222,234 206,228 C188,222 176,219 170,220 Z"/>
-            <circle cx="249" cy="246" r="4"/><!-- Isle of Pines -->
-            <circle cx="254" cy="233" r="3"/><!-- Loyalty Is. -->
-            <!-- Vanuatu chain — Torres 166.7°E,-13.3°S → 229,116 to Aneityum 169.8°E,-20.2°S → 289,213 -->
-            <circle cx="224" cy="114" r="4"/><!-- Torres Is. -->
+            <!-- Santa Cruz (Lata) 166°E,-10.5°S → 215,77 -->
+            <circle cx="215" cy="77" r="6"/>
+            <!-- New Caledonia -->
+            <path d="M165,213 C178,211 200,216 222,224 C236,229 244,235 248,240 L243,244 C237,240 224,234 207,228 C186,221 173,218 163,219 Z"/>
+            <circle cx="250" cy="248" r="4"/>
+            <circle cx="256" cy="234" r="3"/>
+            <!-- Vanuatu chain -->
+            <circle cx="224" cy="114" r="4"/>
             <circle cx="222" cy="108" r="2.5"/>
-            <ellipse cx="244" cy="125" rx="6" ry="4"/><!-- Banks Is. -->
-            <ellipse cx="237" cy="147" rx="14" ry="9"/><!-- Espiritu Santo (largest) -->
-            <circle cx="245" cy="152" r="4"/><!-- Malo -->
-            <circle cx="253" cy="143" r="5"/><!-- Ambae -->
-            <ellipse cx="258" cy="140" rx="3" ry="7"/><!-- Maewo -->
-            <ellipse cx="259" cy="151" rx="3" ry="8"/><!-- Pentecost -->
-            <ellipse cx="244" cy="158" rx="11" ry="7"/><!-- Malekula -->
-            <ellipse cx="258" cy="165" rx="7" ry="5"/><!-- Epi -->
-            <ellipse cx="260" cy="179" rx="9" ry="6"/><!-- Efate (Port Vila) -->
-            <ellipse cx="269" cy="193" rx="7" ry="8"/><!-- Erromango -->
-            <ellipse cx="278" cy="204" rx="8" ry="6"/><!-- Tanna -->
-            <ellipse cx="288" cy="213" rx="5" ry="4"/><!-- Aneityum -->
-            <!-- Fiji — Viti Levu 177.5°E,-17.8°S → 440,179 -->
-            <ellipse cx="440" cy="179" rx="22" ry="14"/><!-- Viti Levu -->
-            <ellipse cx="475" cy="162" rx="17" ry="8"/><!-- Vanua Levu -->
-            <ellipse cx="487" cy="165" rx="4" ry="8"/><!-- Taveuni -->
-            <ellipse cx="455" cy="196" rx="8" ry="4"/><!-- Kadavu -->
+            <ellipse cx="244" cy="125" rx="6" ry="4"/>
+            <ellipse cx="237" cy="147" rx="14" ry="9"/>
+            <circle cx="245" cy="152" r="4"/>
+            <circle cx="253" cy="143" r="5"/>
+            <ellipse cx="258" cy="140" rx="3" ry="7"/>
+            <ellipse cx="259" cy="151" rx="3" ry="8"/>
+            <ellipse cx="244" cy="158" rx="11" ry="7"/>
+            <ellipse cx="258" cy="165" rx="7" ry="5"/>
+            <ellipse cx="260" cy="179" rx="9" ry="6"/>
+            <ellipse cx="269" cy="193" rx="7" ry="8"/>
+            <ellipse cx="278" cy="204" rx="8" ry="6"/>
+            <ellipse cx="288" cy="213" rx="5" ry="4"/>
+            <!-- Fiji -->
+            <ellipse cx="440" cy="179" rx="22" ry="14"/>
+            <ellipse cx="475" cy="162" rx="17" ry="8"/>
+            <ellipse cx="487" cy="165" rx="4" ry="8"/>
+            <ellipse cx="455" cy="196" rx="8" ry="4"/>
             <circle cx="509" cy="168" r="3"/>
             <circle cx="515" cy="176" r="2"/>
             <circle cx="507" cy="182" r="2"/>
-            <!-- Samoa — Savai'i 172.5°E,-13.6°S → 342,120 -->
-            <ellipse cx="342" cy="120" rx="13" ry="7"/><!-- Savai'i -->
-            <ellipse cx="330" cy="124" rx="10" ry="6"/><!-- Upolu -->
-            <!-- American Samoa 189.3°E,-14.3°S → 671,129 -->
+            <!-- Samoa -->
+            <ellipse cx="342" cy="120" rx="13" ry="7"/>
+            <ellipse cx="330" cy="124" rx="10" ry="6"/>
+            <!-- American Samoa -->
             <ellipse cx="671" cy="129" rx="7" ry="4"/>
-            <!-- Wallis & Futuna ~183.8°E,-13.3°S → 563,116 -->
+            <!-- Wallis & Futuna -->
             <circle cx="563" cy="116" r="4"/>
             <circle cx="557" cy="122" r="3"/>
-            <!-- Tuvalu 179.2°E,-8.5°S → 473,49 -->
+            <!-- Tuvalu -->
             <circle cx="473" cy="49" r="3"/>
             <circle cx="483" cy="42" r="2"/>
-            <!-- Tokelau ~172°W=188°E,-9°S → 645,56 -->
+            <!-- Tokelau -->
             <circle cx="645" cy="56" r="2"/>
-            <!-- Niue 190.1°E,-19.0°S → 686,196 -->
-            <circle cx="686" cy="196" r="5"/>
+            <!-- Niue -->
+            <circle cx="686" cy="196" r="6"/>
             <!-- Tonga islands -->
-            <!-- Niuafo'ou 184.3°E,-15.6°S → 573,148 -->
             <circle cx="573" cy="148" r="5"/>
-            <!-- Niuatoputapu 186.2°E,-15.9°S → 610,153 -->
             <circle cx="610" cy="153" r="4"/>
             <circle cx="616" cy="148" r="2"/>
-            <!-- Vava'u 186.0°E,-18.65°S → 607,192 -->
             <ellipse cx="607" cy="192" rx="7" ry="5"/>
             <circle cx="615" cy="187" r="3"/>
-            <!-- Late 185.35°E,-18.8°S → 593,194 -->
             <circle cx="593" cy="194" r="3"/>
-            <!-- Ha'apai group 185.7°E,-19.75°S → 600,207 -->
             <circle cx="597" cy="207" r="4"/>
             <circle cx="603" cy="202" r="3"/>
             <circle cx="601" cy="213" r="2"/>
             <circle cx="594" cy="218" r="2"/>
-            <!-- 'Eua 185.05°E,-21.4°S → 588,229 -->
             <ellipse cx="589" cy="229" rx="5" ry="7"/>
-            <!-- Tongatapu 184.75°E,-21.13°S → 582,225 (main island, ~50km wide) -->
             <ellipse cx="582" cy="225" rx="10" ry="6"/>
           </g>
-          <!-- === VANUATU MARKER — Port Vila, Efate 168.32°E, -17.73°S → x=260, y=178 === -->
-          <circle cx="260" cy="178" r="6" fill="#00aff0" opacity="0.25">
-            <animate attributeName="r" values="6;24" dur="2.5s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.4;0" dur="2.5s" repeatCount="indefinite"/>
+          <!-- === PLACE LABELS — matching screenshot style === -->
+          <g font-family="Inter,Arial,sans-serif" fill="#014d9e">
+            <!-- Lata (Santa Cruz) -->
+            <text x="221" y="71" font-size="9" font-weight="500">· Lata</text>
+            <!-- Vanuatu country label -->
+            <text x="205" y="166" font-size="12" font-weight="700" fill="#010066">Vanuatu</text>
+            <!-- Port Vila small label -->
+            <circle cx="260" cy="178" r="2.5" fill="#014d9e"/>
+            <text x="264" y="176" font-size="8.5">· Port Vila</text>
+            <!-- New Caledonia -->
+            <text x="95" y="240" font-size="11" font-weight="700" fill="#010066">New</text>
+            <text x="89" y="252" font-size="11" font-weight="700" fill="#010066">Caledonia</text>
+            <circle cx="137" cy="216" r="2" fill="#014d9e"/>
+            <text x="141" y="219" font-size="8">· Koumac</text>
+            <circle cx="163" cy="243" r="2" fill="#014d9e"/>
+            <text x="167" y="246" font-size="8">· Nouméa</text>
+            <!-- Fiji country label -->
+            <text x="448" y="171" font-size="12" font-weight="700" fill="#010066">Fiji</text>
+            <!-- Nadi small label -->
+            <circle cx="430" cy="179" r="2.5" fill="#014d9e"/>
+            <text x="418" y="189" font-size="8.5">Nadi ·</text>
+            <!-- Wallis and Futuna -->
+            <text x="525" y="110" font-size="9" font-weight="500" fill="#010066">Wallis and</text>
+            <text x="525" y="121" font-size="9" font-weight="500" fill="#010066">Futuna</text>
+            <!-- Samoa -->
+            <text x="306" y="116" font-size="12" font-weight="700" fill="#010066">Samoa</text>
+            <!-- Tonga country label -->
+            <text x="630" y="232" font-size="12" font-weight="700" fill="#010066">Tonga</text>
+            <!-- Neiafu small label -->
+            <circle cx="607" cy="187" r="2.5" fill="#014d9e"/>
+            <text x="611" y="190" font-size="8">· Neiafu</text>
+            <!-- Niue -->
+            <text x="694" y="200" font-size="10" font-weight="700" fill="#010066">Niue</text>
+          </g>
+          <!-- === VANUATU MARKER — Port Vila 168.32°E,-17.73°S → x=260,y=178 === -->
+          <circle cx="260" cy="178" r="7" fill="#010066" opacity="0.2">
+            <animate attributeName="r" values="7;26" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.35;0" dur="2.5s" repeatCount="indefinite"/>
           </circle>
-          <circle cx="260" cy="178" r="7" fill="#00aff0" opacity="0.15"/>
-          <circle cx="260" cy="178" r="5" fill="#00aff0"/>
-          <circle cx="260" cy="178" r="2.5" fill="white"/>
-          <text x="270" y="173" fill="white" font-size="11" font-weight="700" font-family="Inter,sans-serif">Vanuatu</text>
-          <text x="270" y="185" fill="rgba(255,255,255,0.6)" font-size="8.5" font-family="Inter,sans-serif">Port Vila</text>
-          <!-- === TONGA MARKER — Nukuʻalofa, Tongatapu 184.75°E, -21.13°S → x=582, y=225 === -->
-          <circle cx="582" cy="225" r="6" fill="#0170b9" opacity="0.25">
-            <animate attributeName="r" values="6;24" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.4;0" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+          <circle cx="260" cy="178" r="7" fill="#010066"/>
+          <circle cx="260" cy="178" r="3.5" fill="white"/>
+          <!-- === TONGA MARKER — Nukuʻalofa 184.75°E,-21.13°S → x=582,y=225 === -->
+          <circle cx="582" cy="225" r="7" fill="#010066" opacity="0.2">
+            <animate attributeName="r" values="7;26" dur="2.5s" begin="0.7s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.35;0" dur="2.5s" begin="0.7s" repeatCount="indefinite"/>
           </circle>
-          <circle cx="582" cy="225" r="7" fill="#0170b9" opacity="0.15"/>
-          <circle cx="582" cy="225" r="5" fill="#0170b9"/>
-          <circle cx="582" cy="225" r="2.5" fill="white"/>
-          <text x="592" y="220" fill="white" font-size="11" font-weight="700" font-family="Inter,sans-serif">Tonga</text>
-          <text x="592" y="232" fill="rgba(255,255,255,0.6)" font-size="8.5" font-family="Inter,sans-serif">Nukuʻalofa</text>
+          <circle cx="582" cy="225" r="7" fill="#010066"/>
+          <circle cx="582" cy="225" r="3.5" fill="white"/>
         </svg>
         </div>
         <div class="map-location-info" data-reveal>
