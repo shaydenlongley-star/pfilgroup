@@ -936,30 +936,7 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
   .hero-photo { background-position:75% 40% !important; }
 }
 
-/* FULLSCREEN MOBILE MENU OVERRIDE */
-@media (max-width:900px) {
-  .nav-menu {
-    display:flex !important;
-    position:fixed; inset:0; top:0;
-    background:#010066; backdrop-filter:none;
-    flex-direction:column; align-items:center; justify-content:flex-start;
-    gap:4px; padding:calc(var(--nav-height) + 24px) 28px 40px;
-    overflow-y:auto; z-index:999;
-    opacity:0; transform:translateX(100%); pointer-events:none;
-    transition:opacity 0.35s ease, transform 0.35s cubic-bezier(.4,0,.2,1);
-  }
-  .nav-menu.open { opacity:1; transform:translateX(0); pointer-events:all; }
-  .nav-menu a {
-    font-size:1.1rem !important; padding:13px 28px !important;
-    font-family:var(--font-display) !important; font-weight:700 !important;
-    color:rgba(255,255,255,0.85) !important;
-    border-radius:var(--radius) !important; width:100%; text-align:center;
-    transition:color 0.2s ease, background 0.2s ease !important;
-  }
-  .nav-menu a:hover, .nav-menu a.active { color:#fff !important; background:rgba(255,255,255,0.06) !important; }
-  .nav-menu a::after { display:none !important; }
-  .nav-cta { background:var(--primary) !important; border-radius:var(--radius-sm) !important; margin-top:12px !important; }
-}
+/* duplicate nav block removed — see FULLSCREEN MOBILE MENU above */
 
 /* IMAGE LIGHTBOX */
 .lightbox {
