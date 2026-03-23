@@ -931,6 +931,11 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
 .dot-nav-dot:hover::before { opacity:1; }
 @media (max-width:900px) { .dot-nav { display:none; } }
 
+/* HERO IMAGE POSITION — mobile: shift right to show logo */
+@media (max-width:900px) {
+  .hero-photo { background-position:75% 40% !important; }
+}
+
 /* FULLSCREEN MOBILE MENU OVERRIDE */
 @media (max-width:900px) {
   .nav-menu {
