@@ -630,6 +630,7 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
   .split-img img { height:320px; }
   .grid-2,.grid-3 { grid-template-columns:1fr; }
   .contact-grid { grid-template-columns:1fr; gap:40px; }
+  .businesses-grid { grid-template-columns:1fr; }
   .hero { min-height:auto; padding:calc(var(--nav-height) + 80px) 0 80px; }
   .hero-scroll { display:none; }
 }
@@ -648,6 +649,7 @@ select.form-control { appearance:none; background-image:url("data:image/svg+xml,
   .back-to-top { bottom:20px; right:20px; }
   .split-img img { height:240px; }
   .photo-grid { grid-template-columns:1fr; }
+  .biz-card-img { height:200px; }
   .job-card { flex-direction:column; }
   .btn { white-space:normal; }
   .page-hero-blob-1 { width:280px; height:280px; }
